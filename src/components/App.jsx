@@ -7,9 +7,11 @@ import PropTypes from "prop-types";
 import Detail from "./Detail";
 import NotFound from "./NotFound";
 import AuthRoute from "./AuthRoute";
+import Login from "./Login";
 
 function App() {
-    const user = undefined;
+    const [user, setUser] = useState(undefined);
+    console.log(user);
     //useState --> hook
     //"https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita"
 
@@ -44,6 +46,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<h1>UseEfect</h1>}/>
                 <Route path="/list" element={<AuthRoute user={user} component={<ListDrinks drinks={drinks} />} />} />
+                <Route path="/login" element={ <Login setUser={setUser}/> }/>
                 <Route path="*" element={<NotFound />}/>
             </Routes>
         </div>
